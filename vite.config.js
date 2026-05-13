@@ -11,9 +11,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       // Any request to /api/* from the frontend is transparently
-      // forwarded to the Express server on port 5000.
+      // forwarded to the Express server on port 5001.
       "/api": {
-        target: "http://localhost:5000",
+        target: "http://localhost:5001",
         changeOrigin: true,
       },
     },
