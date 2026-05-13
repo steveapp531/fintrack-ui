@@ -9,7 +9,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: import.meta.env.PROD
+    ? "https://fintrack-server-gr6j.onrender.com/api"
+    : "/api",
   timeout: 120000,
 });
 
