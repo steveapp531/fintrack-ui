@@ -11,9 +11,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       // Any request to /api/* from the frontend is transparently
-      // forwarded to the Express server on port 5001.
+      // forwarded to the live Express server on Render.
       "/api": {
-        target: "http://localhost:5001",
+        target: "https://fintrack-server-gr6j.onrender.com",
         changeOrigin: true,
       },
     },
