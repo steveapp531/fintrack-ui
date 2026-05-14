@@ -12,7 +12,7 @@ const api = axios.create({
   baseURL: import.meta.env.PROD
     ? "https://fintrack-server-gr6j.onrender.com/api"
     : "/api",
-  timeout: 120000,
+  timeout: 600000, // 10 minutes for large file processing
 });
 
 // ── Request interceptor — attach JWT ─────────────────────────
@@ -49,6 +49,7 @@ export async function uploadStatement(file, onProgress) {
   const formData = new FormData();
   formData.append("file", file);
   const response = await api.post("/upload", formData, {
+    timeout: 600000, // 10 minutes for large file processing
     onUploadProgress: (e) => {
       if (e.total) onProgress?.(Math.round((e.loaded * 100) / e.total));
     },
